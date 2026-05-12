@@ -1,3 +1,10 @@
+const dotenv = require('dotenv');
+const path = require('path');
+
+// Load env vars
+const envPath = path.join(__dirname, 'config', 'config.env');
+dotenv.config({ path: envPath });
+
 const app = require('./app');
 const connectDatabase = require('./config/database');
 const cloudinary = require('cloudinary');
@@ -9,7 +16,7 @@ process.on('uncaughtException', (err) => {
     process.exit(1);
 });
 
-// connectDatabase();
+connectDatabase();
 
 cloudinary.config({
     cloud_name: process.env.CLOUDINARY_NAME,

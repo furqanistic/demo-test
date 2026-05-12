@@ -11,63 +11,89 @@ import { properties } from '@/lib/properties-data'
 
 export default function Page() {
   return (
-    <div className="min-h-screen bg-[#0B1120] text-gray-100">
-      {/* Hero Section */}
-      <div className="relative bg-[#0B1120] h-[80vh]">
+    <div className="min-h-screen bg-black text-zinc-100">
+      <div className="relative bg-black min-h-[85vh] overflow-hidden">
         <HeroCarousel />
-        <div className="relative z-20 h-full">
-          <div className="max-w-7xl mx-auto h-full flex items-center px-4 sm:px-6 lg:px-8">
-            <div className="text-center lg:text-left">
-              <h1 className="text-4xl tracking-tight font-extrabold text-white sm:text-5xl md:text-6xl lg:text-7xl">
-                <span className="block">Invest in Real Estate</span>
-                <span className="block text-[#3B82F6]">with Blockchain</span>
-              </h1>
-              <p className="mt-3 text-base text-gray-300 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
-                BlockEstate revolutionizes property investment through fractional ownership. 
-                Invest in premium real estate with cryptocurrency, starting from just $100.
+
+        <div className="absolute inset-0 z-[5] bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none [mask-image:radial-gradient(ellipse_55%_70%_at_50%_45%,#000_25%,transparent_100%)]" />
+
+        <div className="relative z-20 min-h-[85vh] flex items-center">
+          <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
+            <div className="max-w-3xl text-center lg:text-left mx-auto lg:mx-0">
+              <div className="flex justify-center lg:justify-start mb-10">
+                <Image
+                  src="/brand-mark.svg"
+                  alt="RealEstate"
+                  width={88}
+                  height={88}
+                  className="rounded-3xl shadow-[0_0_40px_rgba(255,255,255,0.06)]"
+                  priority
+                />
+              </div>
+
+              <p className="text-[10px] font-medium uppercase tracking-[0.25em] text-zinc-500 mb-4">
+                Tokenized real estate
               </p>
-              <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
-                <div className="rounded-md shadow">
-                  <Button size="lg" className="w-full bg-[#3B82F6] hover:bg-[#2563EB] text-white">
-                    Start Investing
-                    <ChevronRight className="ml-2 h-4 w-4" />
+
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-medium tracking-tighter text-white leading-[1.05]">
+                Own the skyline.
+                <span className="block text-zinc-400 font-light mt-1 sm:mt-2">Not the paperwork.</span>
+              </h1>
+
+              <p className="mt-6 text-base sm:text-lg text-zinc-400 max-w-xl font-light leading-relaxed sm:mx-auto lg:mx-0">
+                Fractional investing in institutional-grade properties—on-chain transparency, clear yield, and a portfolio that actually scales.
+              </p>
+
+              <div className="mt-10 flex flex-col sm:flex-row gap-3 sm:justify-center lg:justify-start">
+                <Link href="/properties">
+                  <Button size="lg" className="w-full sm:w-auto rounded-full bg-white text-black hover:bg-zinc-200 h-12 px-8 font-medium">
+                    View properties
+                    <ChevronRight className="ml-1 h-4 w-4" />
                   </Button>
-                </div>
-                <div className="mt-3 sm:mt-0 sm:ml-3">
-                  <Button variant="outline" size="lg" className="w-full bg-white/10 backdrop-blur-sm text-white border-white/20 hover:bg-white/20">
-                    Learn More
+                </Link>
+                <Link href="/how-it-works">
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className="w-full sm:w-auto rounded-full border-white/15 bg-white/5 text-white hover:bg-white/10 h-12 px-8"
+                  >
+                    How it works
                   </Button>
-                </div>
+                </Link>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Featured Properties */}
-      <div className="bg-gray-800/50 py-12">
+      <div className="border-t border-white/5 bg-zinc-950/80 py-16 lg:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-extrabold tracking-tight text-white">Featured Properties</h2>
-          <div className="mt-6 grid gap-6 lg:grid-cols-3">
+          <h2 className="text-3xl sm:text-4xl font-medium tracking-tight text-white">
+            Featured properties
+          </h2>
+          <p className="mt-2 text-zinc-500 text-sm font-light max-w-lg">
+            Curated opportunities—updated as new listings go live.
+          </p>
+          <div className="mt-10 grid gap-6 lg:grid-cols-3">
             {properties.map((property) => (
-              <Card key={property.id} className="overflow-hidden bg-gray-700/50 border-gray-600">
+              <Card key={property.id} className="overflow-hidden bg-black border-white/10 rounded-2xl">
                 <Image
                   src={property.image}
                   alt={property.title}
                   width={400}
                   height={200}
-                  className="w-full h-48 object-cover"
+                  className="w-full h-48 object-cover opacity-90"
                 />
-                <CardContent className="p-4">
-                  <h3 className="text-lg font-semibold text-white">{property.title}</h3>
-                  <p className="text-sm text-gray-300 mt-1">{property.location}</p>
+                <CardContent className="p-5">
+                  <h3 className="text-lg font-medium text-white tracking-tight">{property.title}</h3>
+                  <p className="text-sm text-zinc-500 mt-1">{property.location}</p>
                   <div className="flex justify-between items-center mt-4">
-                    <span className="text-[#3B82F6] font-bold">${property.price.toLocaleString()}</span>
-                    <span className="text-[#10B981]">Expected ROI: {property.roi}%</span>
+                    <span className="text-white font-medium">${property.price.toLocaleString()}</span>
+                    <span className="text-zinc-400 text-sm">APY {property.roi}%</span>
                   </div>
                   <Link href={`/property/${property.id}`}>
-                    <Button className="w-full mt-4 bg-[#3B82F6] hover:bg-[#2563EB] text-white">
-                      View Details
+                    <Button className="w-full mt-4 rounded-xl bg-white text-black hover:bg-zinc-200">
+                      View details
                     </Button>
                   </Link>
                 </CardContent>
@@ -77,70 +103,71 @@ export default function Page() {
         </div>
       </div>
 
-      {/* How It Works section */}
-      <div className="bg-[#0B1120] py-12">
+      <div className="bg-black py-16 lg:py-20 border-t border-white/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-extrabold tracking-tight text-white text-center">How It Works</h2>
-          <div className="mt-10">
-            <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
-              {[
-                { icon: Home, title: "Choose a Property", description: "Browse our curated selection of premium real estate opportunities." },
-                { icon: Coins, title: "Invest with Crypto", description: "Use cryptocurrency to purchase fractional ownership in properties." },
-                { icon: LineChart, title: "Track Performance", description: "Monitor your investments and returns in real-time through our dashboard." },
-                { icon: Building2, title: "Grow Your Portfolio", description: "Diversify your investments across multiple properties and locations." },
-              ].map((step, index) => (
-                <div key={index} className="text-center">
-                  <div className="flex items-center justify-center h-12 w-12 rounded-md bg-[#3B82F6] text-white mx-auto">
-                    <step.icon className="h-6 w-6" />
-                  </div>
-                  <h3 className="mt-4 text-lg font-medium text-white">{step.title}</h3>
-                  <p className="mt-2 text-base text-gray-400">{step.description}</p>
+          <h2 className="text-3xl sm:text-4xl font-medium tracking-tight text-white text-center">
+            How it works
+          </h2>
+          <div className="mt-14 grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-4">
+            {[
+              { icon: Home, title: "Choose a property", description: "Browse vetted assets and compare yield, geography, and terms." },
+              { icon: Coins, title: "Invest on your terms", description: "Start with fractional tickets and add over time as conviction grows." },
+              { icon: LineChart, title: "Track performance", description: "Clear reporting on value, distributions, and ownership—no black boxes." },
+              { icon: Building2, title: "Build a portfolio", description: "Diversify across markets and property types from one place." },
+            ].map((step, index) => (
+              <div key={index} className="text-center">
+                <div className="flex items-center justify-center h-12 w-12 rounded-xl border border-white/10 bg-white/5 text-white mx-auto">
+                  <step.icon className="h-5 w-5" />
                 </div>
-              ))}
-            </div>
+                <h3 className="mt-5 text-base font-medium text-white tracking-tight">{step.title}</h3>
+                <p className="mt-2 text-sm text-zinc-500 font-light leading-relaxed">{step.description}</p>
+              </div>
+            ))}
           </div>
         </div>
       </div>
 
-      {/* Footer */}
-      <footer className="bg-gray-800/50">
-        <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
+      <footer className="border-t border-white/5 bg-zinc-950/50">
+        <div className="max-w-7xl mx-auto py-14 px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-2 gap-10 md:grid-cols-4">
             <div>
-              <h3 className="text-sm font-semibold text-gray-400 tracking-wider uppercase">Company</h3>
-              <ul className="mt-4 space-y-4">
-                <li><Link href="#" className="text-base text-gray-300 hover:text-white">About</Link></li>
-                <li><Link href="#" className="text-base text-gray-300 hover:text-white">Careers</Link></li>
-                <li><Link href="#" className="text-base text-gray-300 hover:text-white">Contact</Link></li>
+              <h3 className="text-[10px] font-medium text-zinc-500 tracking-widest uppercase">Company</h3>
+              <ul className="mt-4 space-y-3">
+                <li><Link href="/about" className="text-sm text-zinc-400 hover:text-white transition-colors">About</Link></li>
+                <li><Link href="#" className="text-sm text-zinc-400 hover:text-white transition-colors">Careers</Link></li>
+                <li><Link href="#" className="text-sm text-zinc-400 hover:text-white transition-colors">Contact</Link></li>
               </ul>
             </div>
             <div>
-              <h3 className="text-sm font-semibold text-gray-400 tracking-wider uppercase">Resources</h3>
-              <ul className="mt-4 space-y-4">
-                <li><Link href="#" className="text-base text-gray-300 hover:text-white">Blog</Link></li>
-                <li><Link href="#" className="text-base text-gray-300 hover:text-white">Whitepaper</Link></li>
-                <li><Link href="#" className="text-base text-gray-300 hover:text-white">FAQ</Link></li>
+              <h3 className="text-[10px] font-medium text-zinc-500 tracking-widest uppercase">Resources</h3>
+              <ul className="mt-4 space-y-3">
+                <li><Link href="#" className="text-sm text-zinc-400 hover:text-white transition-colors">Blog</Link></li>
+                <li><Link href="#" className="text-sm text-zinc-400 hover:text-white transition-colors">Whitepaper</Link></li>
+                <li><Link href="/how-it-works" className="text-sm text-zinc-400 hover:text-white transition-colors">FAQ</Link></li>
               </ul>
             </div>
             <div>
-              <h3 className="text-sm font-semibold text-gray-400 tracking-wider uppercase">Legal</h3>
-              <ul className="mt-4 space-y-4">
-                <li><Link href="#" className="text-base text-gray-300 hover:text-white">Privacy Policy</Link></li>
-                <li><Link href="#" className="text-base text-gray-300 hover:text-white">Terms of Service</Link></li>
+              <h3 className="text-[10px] font-medium text-zinc-500 tracking-widest uppercase">Legal</h3>
+              <ul className="mt-4 space-y-3">
+                <li><Link href="#" className="text-sm text-zinc-400 hover:text-white transition-colors">Privacy</Link></li>
+                <li><Link href="#" className="text-sm text-zinc-400 hover:text-white transition-colors">Terms</Link></li>
               </ul>
             </div>
             <div>
-              <h3 className="text-sm font-semibold text-gray-400 tracking-wider uppercase">Connect</h3>
-              <ul className="mt-4 space-y-4">
-                <li><Link href="#" className="text-base text-gray-300 hover:text-white">Twitter</Link></li>
-                <li><Link href="#" className="text-base text-gray-300 hover:text-white">LinkedIn</Link></li>
-                <li><Link href="#" className="text-base text-gray-300 hover:text-white">Telegram</Link></li>
+              <h3 className="text-[10px] font-medium text-zinc-500 tracking-widest uppercase">Connect</h3>
+              <ul className="mt-4 space-y-3">
+                <li><Link href="#" className="text-sm text-zinc-400 hover:text-white transition-colors">Twitter</Link></li>
+                <li><Link href="#" className="text-sm text-zinc-400 hover:text-white transition-colors">LinkedIn</Link></li>
               </ul>
             </div>
           </div>
-          <div className="mt-8 border-t border-gray-700 pt-8">
-            <p className="text-base text-gray-400 xl:text-center">
-              &copy; 2024 BlockEstate. All rights reserved.
+          <div className="mt-12 border-t border-white/5 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div className="flex items-center gap-2">
+              <Image src="/brand-mark.svg" alt="" width={32} height={32} className="rounded-lg opacity-80" />
+              <span className="text-sm text-zinc-500">RealEstate</span>
+            </div>
+            <p className="text-xs text-zinc-600 text-center sm:text-right">
+              © 2026 RealEstate. All rights reserved.
             </p>
           </div>
         </div>

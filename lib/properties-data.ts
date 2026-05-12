@@ -23,13 +23,27 @@ export const properties = [
     roi: 9.1,
     image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
   },
+  {
+    id: 4,
+    title: "Skyline Tower Penthouse",
+    location: "Chicago, IL",
+    price: 1200000,
+    roi: 10.5,
+    image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+    model3d: true,
+    features: ["360° City View", "Private Elevator", "Smart Home System", "Rooftop Pool"]
+  },
 ]
 
 export type Property = {
-  id: number
+  id: string | number
   title: string
   location: string
   price: number
   roi: number
   image: string
+  model3d?: boolean
+  modelUrl?: string
+  features?: string[]
+  description?: string
 } 

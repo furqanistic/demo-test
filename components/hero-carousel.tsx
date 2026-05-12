@@ -24,7 +24,7 @@ export function HeroCarousel() {
 
   return (
     <div className="absolute inset-0 w-full h-full overflow-hidden">
-      <div className="absolute inset-0 bg-black/50 z-10" />
+      <div className="absolute inset-0 bg-black/60 z-10" />
       <div className="embla h-full" ref={emblaRef}>
         <div className="embla__container h-full flex">
           {images.map((src, index) => (

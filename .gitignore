@@ -1,2 +1,8 @@
 node_modules
 .next
+
+# Secrets & local env (never commit)
+.env
+.env.local
+.env*.local
+server/config/config.env
